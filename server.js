@@ -11,6 +11,22 @@ const rollbar = new Rollbar('83a142b5f90e4792b0a7779d18910908');
 
 app.use(rollbar.errorHandler());
 
+Rollbar.configure({reportLevel: 'error'});
+
+Rollbar.configure({verbose: true});
+
+try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+  }
+  
+try {
+    duel();
+  } catch (error) {
+    console.error(error);
+  }
+
 app.get('/', (req, res) => {
     const htmlFilePathA = path.resolve(__dirname, '.', 'public', 'index.html');
     res.sendFile(htmlFilePathA);
