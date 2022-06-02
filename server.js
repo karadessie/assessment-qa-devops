@@ -28,18 +28,6 @@ app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.js'))
 })
 
-// try {
-//     nonExistentFunction();
-//   } catch (error) {
-//     console.error(error);
-//   }
-  
-// try {
-//     duel();
-//   } catch (error) {
-//     console.error(error);
-//   }
-
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
