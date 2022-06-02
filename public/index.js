@@ -23,6 +23,18 @@ chooseHeader.classList.add('hide')
 yourDuoHeader.classList.add('hide')
 compDuoHeader.classList.add('hide')
 
+try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+  }
+  
+try {
+    duel();
+  } catch (error) {
+    console.error(error);
+  }
+
 const makeRobotChoiceCard = (bot) => {
     return `
         <div class="bot-card outline">
