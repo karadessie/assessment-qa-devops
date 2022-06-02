@@ -15,18 +15,6 @@ Rollbar.configure({reportLevel: 'error'});
 
 Rollbar.configure({verbose: true});
 
-try {
-    nonExistentFunction();
-  } catch (error) {
-    console.error(error);
-  }
-  
-try {
-    duel();
-  } catch (error) {
-    console.error(error);
-  }
-
 app.get('/', (req, res) => {
     const htmlFilePathA = path.resolve(__dirname, '.', 'public', 'index.html');
     res.sendFile(htmlFilePathA);
@@ -39,6 +27,18 @@ app.get('/css', (req, res) => {
 app.get('/js', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.js'))
 })
+
+try {
+    nonExistentFunction();
+  } catch (error) {
+    console.error(error);
+  }
+  
+try {
+    duel();
+  } catch (error) {
+    console.error(error);
+  }
 
 app.get('/api/robots', (req, res) => {
     try {
