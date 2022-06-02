@@ -6,6 +6,24 @@ const {shuffleArray} = require('./utils')
 
 app.use(express.json())
 
+const Rollbar = require('rollbar');
+const rollbar = new Rollbar('83a142b5f90e4792b0a7779d18910908');
+
+app.use(rollbar.errorHandler());
+
+app.get('/', (req, res) => {
+    const htmlFilePathA = path.resolve(__dirname, '.', 'public', 'index.html');
+    res.sendFile(htmlFilePathA);
+})
+
+app.get('/css', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.css'))
+})
+
+app.get('/js', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.js'))
+})
+
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
